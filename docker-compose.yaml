@@ -1,7 +1,8 @@
 services:
   backend:
     build: ./backend
-    image: YOUR_DOCKERHUB_USERNAME/flask-backend:latest
+    image: angadkumar9/flask-backend:latest
+    
     container_name: flask_backend
     ports:
       - "5000:5000"
@@ -10,12 +11,12 @@ services:
 
   frontend:
     build: ./frontend
-    image: YOUR_DOCKERHUB_USERNAME/express-frontend:latest
+    image: angadkumar9/express-frontend:latest
     container_name: express_frontend
     ports:
       - "3000:3000"
     environment:
-      - BACKEND_URL=http://backend:5000
+      - BACKEND_URL=http://git add .:5000
     depends_on:
       - backend
     networks:
