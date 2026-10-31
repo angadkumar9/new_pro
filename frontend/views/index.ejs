@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docker Full-Stack Form</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Contact Form</h1>
+    <p class="sub">Express frontend &rarr; Flask backend</p>
+    <form action="/submit" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required>
+      <label>Email</label>
+      <input type="email" name="email" required>
+      <label>Message</label>
+      <textarea name="message" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <% if (error) { %><div class="alert error"><%= error %></div><% } %>
+    <% if (result) { %>
+      <div class="alert ok">
+        <strong><%= result.reply %></strong>
+        <ul>
+          <li>Name: <%= result.data.name %></li>
+          <li>Email: <%= result.data.email %></li>
+          <li>Message length: <%= result.data.message_length %> characters</li>
+          <li>Word count: <%= result.data.word_count %></li>
+        </ul>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
